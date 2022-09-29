@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+/* font import */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"); 
 
+/* basic colors setup */
 :root {
   --font-base: "DM Sans", sans-serif;
 
