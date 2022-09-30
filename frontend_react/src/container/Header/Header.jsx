@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import { images } from "../../constants";
-import "./Header_.scss";
+import "./Header.scss";
 
 const scaleVariants = {
   whileInView: {
