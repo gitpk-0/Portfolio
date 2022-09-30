@@ -19,13 +19,16 @@
     justify-content: flex-start;
     align-items: center;
 
+
+    // logo image
     img {
-        width: 50%;
+        width: 180px;
+        height: 40px;
 
         // for devices 2000px or larger
         @media screen and (min-width: 2000px) {
-            width: 75%;
-            
+            width: 225px;
+            height: 50px;
         }
     }
 }
@@ -41,7 +44,7 @@
     li {
         margin: 0 1rem;
         cursor: pointer;
-
+        font-size: 1.25rem; // pk
         flex-direction: column;
 
         div {
@@ -84,9 +87,10 @@
 }
 
 
+// mobile menu styling
 .app__navbar-menu {
-    width: 85px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     position: relative;
 
