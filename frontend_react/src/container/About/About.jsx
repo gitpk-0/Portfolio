@@ -33,7 +33,7 @@ import { urlFor, client } from "../../client";
 const About = () => {
   const [abouts, setAbouts] = useState([]);
 
-  // initial load useEffect
+  // initial load useEffect -- fetching abouts from sanity
   useEffect(() => {
     const query = '*[_type == "abouts"]';
 
