@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 
-import { AppWrap } from "../../wrapper";
+import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 import "./Work.scss";
 
@@ -45,7 +45,7 @@ const Work = () => {
       </h2>
 
       <div className="app__work-filter">
-        {["ReactJS", "Python", "API", "Flask", "Django", "All"].map(
+        {["ReactJS", "Python", "SQL", "API", "Flask", "Django", "All"].map(
           (item, index) => (
             <div
               key={index}
@@ -70,6 +70,7 @@ const Work = () => {
             <div className="app__work-img app__flex">
               {/* project image */}
               <img src={urlFor(work.imgUrl)} alt={work.name} />
+              {/* {console.log("here", urlFor(work.imgurl))} */}
 
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
@@ -124,4 +125,4 @@ const Work = () => {
   );
 };
 
-export default AppWrap(Work, "work");
+export default AppWrap(MotionWrap(Work, "app__works"), "work", "app__whitebg");
