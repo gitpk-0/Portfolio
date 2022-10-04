@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
-import { images } from "../../constants";
+// import { images } from "../../constants";
 import "./About.scss";
 import { urlFor, client } from "../../client";
 
@@ -38,6 +38,7 @@ const About = () => {
     const query = '*[_type == "abouts"]';
 
     client.fetch(query).then((data) => {
+      // console.log(data);
       setAbouts(data);
     });
   }, []);
@@ -50,7 +51,7 @@ const About = () => {
       </h2>
 
       <div className="app__profiles">
-        {abouts.map((about, index) => (
+        {abouts?.map((about, index) => (
           <motion.div
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}

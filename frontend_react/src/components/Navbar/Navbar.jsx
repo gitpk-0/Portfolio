@@ -8,14 +8,23 @@ import "./Navbar.scss";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
+  const sections = [
+    "home",
+    "work",
+    "skills",
+    "about",
+    "testimonials",
+    "contact",
+  ];
+
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img src={images.patrickKellLogo} alt="logo" />
+        <img src={images.patrickKellLogo2} alt="logo" />
       </div>
       <ul className="app__navbar-links">
         {/* nav links for all sections */}
-        {["home", "work", "skills", "about", "contact"].map((item) => (
+        {sections.map((item) => (
           <li className="app__flex p-text" key={`link-${item}`}>
             <div />
             <a href={`#${item}`}>{item}</a>
@@ -36,7 +45,7 @@ const Navbar = () => {
             <HiX onClick={() => setToggle(false)} />
             {/* nav links for all sections */}
             <ul>
-              {["home", "work", "skills", "about", "contact"].map((item) => (
+              {sections.map((item) => (
                 <li key={item}>
                   <a href={`#${item}`} onClick={() => setToggle(false)}>
                     {item}

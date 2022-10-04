@@ -5,7 +5,7 @@
 }
 
 .app__testimonial-item {
-    width: 60%;
+    width: 95%;
     min-height: 320px;
     background-color: var(--white-color);
     display: flex;
@@ -16,8 +16,8 @@
     transition: all 0.3s ease-in-out;
 
     img {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
         border-radius: 50%;
         object-fit: cover;
     }
@@ -26,8 +26,8 @@
         min-height: 450px;
 
         img {
-            width: 150px;
-            height: 150px;
+            width: 350px;
+            height: 350px;
         }
     }
 
@@ -53,6 +53,7 @@
     align-items: flex-start;
 
     p {
+        margin-top: 1rem;
         font-size: 1.25rem;
         line-height: 2rem;
         color: var(--black-color);

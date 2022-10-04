@@ -82,6 +82,7 @@ const Work = () => {
                 className="app__work-hover app__flex"
               >
                 {/* eye icon anchor link to website*/}
+                {/* open in new tab = target="_blank" rel="noreferrer" */}
                 <a href={work.projectLink} target="_blank" rel="noreferrer">
                   <motion.div
                     whileInView={{ scale: [0, 1] }}

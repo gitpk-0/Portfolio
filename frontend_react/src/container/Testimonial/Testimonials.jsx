@@ -28,7 +28,7 @@ const Testimonial = () => {
 
     // brands data
     client.fetch(brandsQuery).then((data) => {
-      console.log(brands);
+      // console.log(brands);
       setBrands(data);
     });
   }, []);
@@ -98,6 +98,6 @@ const Testimonial = () => {
 
 export default AppWrap(
   MotionWrap(Testimonial, "app__testimonial"),
-  "testimonial",
+  "testimonials",
   "app__primarybg"
 );
