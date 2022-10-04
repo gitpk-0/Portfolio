@@ -14,7 +14,7 @@
 }
 
 .app__profile-item {
-    width: 190px;
+    width: 200px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -28,6 +28,11 @@
         object-fit: cover;
     }
 
+    p {
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
     @media screen and (min-width: 2000px) { // xl screens
         width: 370px;
         margin: 2rem 4rem;
@@ -36,4 +41,6 @@
             height: 320px;
         }
     }
+
+    
 }
