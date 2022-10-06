@@ -25,7 +25,7 @@ import vue from "../assets/vue.png";
 
 import profile from "../assets/profile.png";
 import circle from "../assets/circle.svg";
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
 import patrickKellLogo from "../assets/patrickKellLogo.png";
 import patrickKellLogo2 from "../assets/patrickKellLogo2.png";
 
@@ -59,7 +59,6 @@ export default {
   vue,
   profile,
   circle,
-  logo,
   patrickKellLogo,
   patrickKellLogo2,
   adidas,
