@@ -26,7 +26,12 @@ const Header = () => {
       >
         <div className="app__header-badge">
           <div className="badge-cmp app__flex">
-            <span>👋</span>
+            {/* <span>👋</span> */}
+            <img
+              src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif"
+              width="30px"
+              height="30px"
+            ></img>
             <div style={{ marginLeft: 20 }}>
               <p className="p-text">Hello, I am </p>
               <h1 className="head-text">Patrick</h1>
@@ -35,7 +40,6 @@ const Header = () => {
 
           <div className="tag-cmp app__flex">
             <p className="p-text">Software Developer</p>
-            {/* <p className="p-text">Web Developer</p> */}
           </div>
         </div>
       </motion.div>
@@ -62,11 +66,11 @@ const Header = () => {
       >
         {/* skill bubbles */}
         {[
-          images.javascript,
-          images.react,
           images.python,
-          // images.node,
-          // images.api,
+          images.springboot,
+          images.java2,
+          images.react,
+          images.javascript,
         ].map((circle, index) => (
           <div className="circle-cmp app__flex" key={`circle-${index}`}>
             <img src={circle} alt="circle" />
