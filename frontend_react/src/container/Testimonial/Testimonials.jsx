@@ -10,6 +10,7 @@ const Testimonial = () => {
   const [brands, setBrands] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hasError, setHasError] = useState(false);
 
   const handleClick = (index) => {
     setCurrentIndex(index);
@@ -21,64 +22,92 @@ const Testimonial = () => {
     const brandsQuery = "*[_type == 'brands']";
 
     // testimonials data
-    client.fetch(query).then((data) => {
-      // console.log(testimonials);
-      setTestimonials(data);
-    });
+    client
+      .fetch(query)
+      .then((data) => {
+        // console.log(testimonials);
+        setTestimonials(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+        setHasError(true);
+      });
 
     // brands data
-    client.fetch(brandsQuery).then((data) => {
-      // console.log(brands);
-      setBrands(data);
-    });
+    client
+      .fetch(brandsQuery)
+      .then((data) => {
+        // console.log(brands);
+        setBrands(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+        setHasError(true);
+      });
   }, []);
 
   const test = testimonials[currentIndex];
 
   return (
     <>
-      {testimonials.length && (
-        <>
-          <div className="app__testimonial-item app__flex">
-            <img src={urlFor(test.imageurl)} alt={test.name} />
-            <div className="app__testimonial-content">
-              <p className="p-text">{test.feedback}</p>
-              <div>
-                <h4 className="bold-text">{test.name}</h4>
-                <h5 className="p-text">{test.company}</h5>
+      {hasError ? (
+        <p
+          style={{
+            margin: "1rem 12rem",
+            textAlign: "center",
+            fontWeight: "500",
+            fontSize: "x-large",
+          }}
+        >
+          We've hit a snag! Your network seems to be blocking this content. Rest
+          assured that it is safe and not harmful to your device or data.
+          Consider disabling VPNs or network policies and refreshing, or try a
+          different device.
+        </p>
+      ) : (
+        testimonials.length && (
+          <>
+            <div className="app__testimonial-item app__flex">
+              <img src={urlFor(test.imageurl)} alt={test.name} />
+              <div className="app__testimonial-content">
+                <p className="p-text">{test.feedback}</p>
+                <div>
+                  <h4 className="bold-text">{test.name}</h4>
+                  <h5 className="p-text">{test.company}</h5>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="app__testimonial-btns app__flex">
-            <div
-              className="app__flex"
-              onClick={() =>
-                handleClick(
-                  currentIndex === 0 // if on first testimonial item
-                    ? testimonials.length - 1 // loop to last
-                    : currentIndex - 1 // else loop to previous item
-                )
-              }
-            >
-              {/* left arrow */}
-              <HiChevronLeft />
+            <div className="app__testimonial-btns app__flex">
+              <div
+                className="app__flex"
+                onClick={() =>
+                  handleClick(
+                    currentIndex === 0 // if on first testimonial item
+                      ? testimonials.length - 1 // loop to last
+                      : currentIndex - 1 // else loop to previous item
+                  )
+                }
+              >
+                {/* left arrow */}
+                <HiChevronLeft />
+              </div>
+              <div
+                className="app__flex"
+                onClick={() =>
+                  handleClick(
+                    currentIndex === testimonials.length - 1 // if last testimonial item
+                      ? 0 // loop to first
+                      : currentIndex + 1 // else loop to next item
+                  )
+                }
+              >
+                {/* right arrow */}
+                <HiChevronRight />
+              </div>
             </div>
-            <div
-              className="app__flex"
-              onClick={() =>
-                handleClick(
-                  currentIndex === testimonials.length - 1 // if last testimonial item
-                    ? 0 // loop to first
-                    : currentIndex + 1 // else loop to next item
-                )
-              }
-            >
-              {/* right arrow */}
-              <HiChevronRight />
-            </div>
-          </div>
-        </>
+          </>
+        )
       )}
 
       <div className="app__testimonial-brands app__flex">

@@ -11,5 +11,14 @@ cd frontend -> npm update -> npm run build
 login to hostinger
 manage website
 file manager
-make new public_html folder (rename old)
-add each file from frontend/build folder
+rename previous public_html folder (public_html_{version})
+upload new build folder - rename it to public_html
+
+<!-- run locally -->
+cd frontend -> npm start
+
+
+<!-- to do -->
+update copyright year
+mobile styling for content error message - responsive
+add SAIC logo

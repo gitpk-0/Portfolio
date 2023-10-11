@@ -11,6 +11,7 @@ import "./Skills.scss";
 const Skills = () => {
   const [experience, setExperience] = useState([]);
   const [skills, setSkills] = useState([]);
+  const [hasError, setHasError] = useState(false);
 
   // useEffect on initial render -- fetches skill items from sanity
   useEffect(() => {
@@ -18,15 +19,27 @@ const Skills = () => {
     const skillsQuery = "*[_type == 'skills']";
 
     // experience data
-    client.fetch(query).then((data) => {
-      // console.log(skills);
-      setExperience(data);
-    });
+    client
+      .fetch(query)
+      .then((data) => {
+        // console.log(skills);
+        setExperience(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+        setHasError(true);
+      });
 
     // skills data
-    client.fetch(skillsQuery).then((data) => {
-      setSkills(data);
-    });
+    client
+      .fetch(skillsQuery)
+      .then((data) => {
+        setSkills(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+        setHasError(true);
+      });
   }, []);
 
   return (
@@ -35,22 +48,38 @@ const Skills = () => {
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
-          {skills?.map((skill) => (
-            <motion.div
-              whileInView={{ opacity: [0, 1] }}
-              transition={{ duration: 0.5 }}
-              className="app__skills-item app__flex"
-              key={skill.name}
+          {hasError ? (
+            <p
+              style={{
+                margin: "1rem 1rem",
+                textAlign: "center",
+                fontWeight: "500",
+                fontSize: "x-large",
+              }}
             >
-              <div
-                className="app__flex"
-                style={{ backgroundColor: skill.bgColor }}
+              We've hit a snag! Your network seems to be blocking this content.
+              Rest assured that it is safe and not harmful to your device or
+              data. Consider disabling VPNs or network policies and refreshing,
+              or try a different device.
+            </p>
+          ) : (
+            skills?.map((skill) => (
+              <motion.div
+                whileInView={{ opacity: [0, 1] }}
+                transition={{ duration: 0.5 }}
+                className="app__skills-item app__flex"
+                key={skill.name}
               >
-                <img src={urlFor(skill.icon)} alt={skill.name} />
-              </div>
-              <p className="p-text">{skill.name}</p>
-            </motion.div>
-          ))}
+                <div
+                  className="app__flex"
+                  style={{ backgroundColor: skill.bgColor }}
+                >
+                  <img src={urlFor(skill.icon)} alt={skill.name} />
+                </div>
+                <p className="p-text">{skill.name}</p>
+              </motion.div>
+            ))
+          )}
         </motion.div>
 
         <motion.div className="app__skills-exp">
