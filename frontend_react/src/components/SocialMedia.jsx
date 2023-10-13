@@ -29,7 +29,7 @@ const SocialMedia = () => {
           <AiOutlineMail />
         </a>
       </div>
-      {/* Instagram link */}
+      {/* Instagram link
       <div>
         <a
           href="https://www.instagram.com/_patrick_kell/"
@@ -38,7 +38,7 @@ const SocialMedia = () => {
         >
           <BsInstagram />
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };

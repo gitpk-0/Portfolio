@@ -21,4 +21,4 @@ cd frontend -> npm start
 <!-- to do -->
 update copyright year
 mobile styling for content error message - responsive
-add SAIC logo
+update error message
