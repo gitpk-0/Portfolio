@@ -1,0 +1,23 @@
+.app__content-error {
+    margin: 1rem 12rem;
+    text-align: center;
+    font-weight: 500;
+    font-size: x-large;
+
+    @media screen and (max-width: 850px) { // tablets and mobile devices
+        margin: 1rem;
+        font-size: medium;
+    }
+}
+
+.app__content-error-skill {
+    margin: 1rem;
+    text-align: center;
+    font-weight: 500;
+    font-size: x-large;
+
+    @media screen and (max-width: 850px) { // tablets and mobile devices
+        margin: 1rem;
+        font-size: medium;
+    }
+}

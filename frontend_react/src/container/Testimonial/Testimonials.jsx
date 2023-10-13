@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import ReactHtmlParser from "react-html-parser";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 import "./Testimonial.scss";
+import { ERROR_MESSAGE } from "../errorMessage";
+import "../../container/errorMessages.scss";
 
 const Testimonial = () => {
   const [brands, setBrands] = useState([]);
@@ -51,19 +54,7 @@ const Testimonial = () => {
   return (
     <>
       {hasError ? (
-        <p
-          style={{
-            margin: "1rem 12rem",
-            textAlign: "center",
-            fontWeight: "500",
-            fontSize: "x-large",
-          }}
-        >
-          We've hit a snag! Your network seems to be blocking this content. Rest
-          assured that it is safe and not harmful to your device or data.
-          Consider disabling VPNs or network policies and refreshing, or try a
-          different device.
-        </p>
+        <p className="app__content-error">{ReactHtmlParser(ERROR_MESSAGE)}</p>
       ) : (
         testimonials.length && (
           <>
